@@ -38,6 +38,15 @@ TypeScript · Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · PostgreSQ
    ```
    Then open http://localhost:3000. Sign in with the admin account and set your payment details in **Admin → Settings**.
 
+## Deploy (Vercel)
+
+1. Import this repo at vercel.com/new (framework: Next.js, no build settings to change).
+2. Add the environment variables from `.env.example` (Settings → Environment Variables). For `DATABASE_URL`, use the
+   **Transaction pooler** string (port `6543`); serverless functions open many short connections.
+   Set `NEXT_PUBLIC_APP_URL` to your Vercel URL.
+3. Deploy. `vercel.json` pins functions to Seoul (`icn1`) to sit next to the database; change it if your Supabase project is elsewhere.
+4. In Supabase → Authentication → URL Configuration, set **Site URL** to your Vercel URL.
+
 ## Scripts
 
 | Command | What it does |
